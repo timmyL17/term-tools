@@ -44,7 +44,7 @@ fi
 # autojump
 [[ -s ~/.autojump/etc/profile.d/autojump.sh ]] && source ~/.autojump/etc/profile.d/autojump.sh
 if [ "$BASH_VERSION" ]; then
-	complete -F _cd j
+	complete -F _autojump j
 fi
 
 # ls with a 1-second timeout
@@ -62,13 +62,13 @@ fi
 # autojump wrapper (I've renamed "function j" in
 #   autojump.sh to "function j_impl")
 function j {
-	local _p=$PWD
-	j_impl $@
+    local _p=$PWD
+    j_impl $@
 
-	if [[ "$PWD" == "$_p" ]] && [ -d "$1" ]; then
-		cd $1
-		echo -e "\\033[31m${PWD}\\033[0m"
-	fi
+    if [[ "$PWD" == "$_p" ]] && [ -d "$1" ]; then
+        cd $1
+        echo -e "\\033[31m${PWD}\\033[0m"
+    fi
 }
 
 # ZSH-SPECIFIC CONFIG
