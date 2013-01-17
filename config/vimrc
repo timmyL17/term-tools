@@ -37,11 +37,12 @@ set encoding=utf-8     " use UTF-8 (default latin1)
 set autoread           " auto-reload modified files (with no local changes)
 set undolevels=65536   " lots of undo (default 1000)
 set history=1024       " lots of history (default 20)
-set mouse=a            " enable mouse (set mouse= to disable mouse)
+"set mouse=a            " enable mouse (set mouse= to disable mouse)
+set mouse=
 set foldmethod=syntax  " fold using syntax by default
 set foldminlines=4     " require a medium size to fold
 set foldnestmax=3      " max 3 fold levels for syntax/indent folding
-set hidden             " allow un-saved buffers in background
+"set hidden             " allow un-saved buffers in background
 set lazyredraw         " no redraws in macros
 set confirm            " dialog when :q, :w, :x, :wq fails
 set title              " change terminal title
@@ -60,18 +61,19 @@ set linebreak          " show wrap at word boundaries
 set showbreak=\ ↪\     " prefix wrap with ↪
 
 " Autocompletion
-set wildmenu                 " completion with menu
-set wildmode=list:longest    " list instead of fill in options
+"set wildmenu                 " completion with menu
+"set wildmode=list:longest    " list instead of fill in options
 set wildignore=*~,*.o,*.d,*.obj,*.class,*.pyc,*.bak,*.swp,.svn,.git
 set suffixes=~,.o,.d,.obj,.class,.bak,.swp,.pyc
 set completeopt=menu,preview " Completion with a menu
 
 " Indentation -- width of 4 spaces
-set autoindent     " automatic indentation
-set nosmartindent  " disable C-style indenting by default (only useful for C/C++)
-set tabstop=4      " Number of spaces that a <Tab> in the file counts for (default 8)
-set shiftwidth=4   " Number of spaces to use for each step of (auto)indent.
-set textwidth=0    " no hard wrapping by default
+set autoindent          " automatic indentation
+set nosmartindent       " disable C-style indenting by default (only useful for C/C++)
+set tabstop=4           " Number of spaces that a <Tab> in the file counts for (default 8)
+set shiftwidth=4        " Number of spaces to use for each step of (auto)indent.
+set textwidth=0         " no hard wrapping by default
+set expandtab           " use spaces instead of tabs
 
 " Better search
 set incsearch      " incremental search
@@ -106,32 +108,32 @@ execute "set <xLeft>=\e[1;*D"
 " Windows and tabs {{{
 
 " Left/right or c-h/c-l -- switch tabs
-noremap <left>  gT
-noremap <c-h>   gT
-noremap <right> gt
-noremap <c-l>   gt
-inoremap <left>  <esc>gT
-inoremap <right> <esc>gt
+"noremap <left>  gT
+"noremap <c-h>   gT
+"noremap <right> gt
+"noremap <c-l>   gt
+"inoremap <left>  <esc>gT
+"inoremap <right> <esc>gt
 
 " Up/down -- switch windows
-noremap <down> <c-w>w
-noremap <c-j>  <c-w>w
-noremap <up>   <c-w>W
-noremap <c-k>  <c-w>W
-inoremap <down> <esc><c-w>w
-inoremap <up>   <esc><c-w>W
+"noremap <down> <c-w>w
+"noremap <c-j>  <c-w>w
+"noremap <up>   <c-w>W
+"noremap <c-k>  <c-w>W
+"inoremap <down> <esc><c-w>w
+"inoremap <up>   <esc><c-w>W
 
 " Ctrl+left/right -- move tabs
-noremap <c-left>  :execute 'silent! tabmove ' . (tabpagenr()-2)<cr>
-noremap <c-right> :execute 'silent! tabmove ' . tabpagenr()<cr>
+"noremap <c-left>  :execute 'silent! tabmove ' . (tabpagenr()-2)<cr>
+"noremap <c-right> :execute 'silent! tabmove ' . tabpagenr()<cr>
 
 " Ctrl+up/down -- move windows
-noremap <c-down> <c-w>r
-noremap <c-up>   <c-w>R
+"noremap <c-down> <c-w>r
+"noremap <c-up>   <c-w>R
 
 " Ctrl+shift+left/right -- move window into new tab left or right
-map <c-s-left>  <c-w>T<c-left>
-map <c-s-right> <c-w>T<c-right>
+"map <c-s-left>  <c-w>T<c-left>
+"map <c-s-right> <c-w>T<c-right>
 
 let g:lasttab = 1
 au TabLeave * let g:lasttab = tabpagenr()
@@ -222,7 +224,7 @@ set pastetoggle=<F2>
 "" Switch CWD to the directory of the open buffer
 noremap <leader>cd :cd %:p:h<cr>:pwd<cr>
 
-" <leader>sp : toggle check SPelling
+" <leader>sp : toggle check Spelling
 noremap <leader>sp <esc>:setlocal spell!<cr>
 
 " // : clear search
@@ -338,8 +340,8 @@ noremap <leader>dw <esc>:call DeleteTrailingWS()<cr>
 " Python -- whitespace sensitive
 autocmd FileType python setlocal tabstop=4 expandtab shiftwidth=4 softtabstop=4
 
-" Latex -- 2-space tabs and 80-character hard wrapping
-autocmd FileType tex setlocal expandtab shiftwidth=2 tabstop=2 textwidth=80
+" Latex -- 4-space tabs and 80-character hard wrapping
+autocmd FileType tex setlocal expandtab shiftwidth=4 tabstop=4 textwidth=80
 
 " Vimrc -- fold with markers
 autocmd FileType vim setlocal foldmethod=marker
@@ -348,7 +350,10 @@ autocmd FileType vim setlocal foldmethod=marker
 autocmd FileType crontab setlocal backupcopy=yes
 
 " C/C++ -- smart indentation
-autocmd FileTYpe c,cpp,h,hpp setlocal smartindent cindent
+" control indentation in c/c++ files with cinoptions
+autocmd FileType c,cpp,h,hpp setlocal smartindent cindent cinoptions=(0,t0,+0
+" by default smartindent unindents lines starting with #. disable this
+autocmd FileType c,cpp,h,cpp inoremap # X#
 
 " Coffeescript -- 2-space tabs
 autocmd BufNewFile,BufReadPost *.coffee setl shiftwidth=2 tabstop=2 softtabstop=2 expandtab
@@ -358,7 +363,8 @@ autocmd BufNewFile,BufReadPost *.coffee setl shiftwidth=2 tabstop=2 softtabstop=
 " Plugin config {{{
 
 " Powerline -- fancy status line
-let g:Powerline_symbols = 'fancy'
+let g:Powerline_symbols = 'compatible'
+let g:Powerline_stl_path_style = 'filename'
 set laststatus=2  " 2 means always show status
 
 " YankStack -- paste older items on stack
@@ -388,11 +394,12 @@ autocmd FileType c,cpp,h,hpp nnoremap <C-LeftMouse> <LeftMouse><esc>:CSearchCont
 
 " Automatically insert C++ header gates for new h/hpp files
 function! s:insert_gates()
-  let gatename = '__' . substitute(toupper(expand("%:t")), "\\.", "_", "g")
+  let gatename = '_' . substitute(toupper(substitute(expand("%:t"), "\\(\.\\)\\(\\u\\)", "\\1_\\2", "g")), "\\.", "_", "g")
   execute "normal! i#ifndef " . gatename
   execute "normal! o#define " . gatename
-  execute "normal! Go#endif /* " . gatename . " */"
-  execute "normal! ggo"
+  execute "normal! Go#endif // " . gatename
+  execute "normal! o"
+  execute "normal! 2Go"
 endfunction
 autocmd BufNewFile *.{h,hpp} call <SID>insert_gates()
 
@@ -573,6 +580,10 @@ let g:tex_flavor='latex'
 " search in a singe file. This will confuse latex-suite. Set your grep
 " program to alway generate a file-name.
 set grepprg=grep\ -nH\ $*
+
+" Stop {} and [] from using smartindent-like indentation
+" Unset or set to non-zero to enable smartindent-like indentation
+let g:tex_indent_brace=0
 
 " Latex leader: use , instead of `
 let g:Tex_Leader=','
