@@ -15,6 +15,8 @@
 	sb = show-branch
 	staged = diff --staged
 	unstage = reset HEAD
+    pushall = !"git remote | xargs -n1 git push --all; git remote | xargs -n1 git push --tags"
+    rmbranch = !"f() { git remote | xargs -n1 -I {} git push {} ":"$1; git branch -d $1; }; f"
 	sync-hard = !"git fetch && git reset --hard"
 	prune-all = !"git remote | xargs -n 1 git remote prune"
 	lg = "log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative"
