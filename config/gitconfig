@@ -32,3 +32,6 @@
 	cmd = gvim -f -d -c \"wincmd J\" \"$MERGED\" \"$LOCAL\" \"$BASE\" \"$REMOTE\"
 [merge]
 	tool = vimdiff3
+[user]
+	name = Tim Langlois
+	email = langlois@cs.cornell.edu
