@@ -382,6 +382,7 @@ autocmd FileType c,cpp,h,hpp hi Special ctermfg=4
 "   -- enter : search context
 "   -- <leader>vc : validate c++ code
 "   -- <leader>fc : find c++ tag
+" Disable automatic validation (slows saves down)
 set completeopt=longest,menuone
 inoremap <nul> <C-x><C-u><C-n>
 inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<cr>"
@@ -389,6 +390,7 @@ inoremap <expr> <C-n> pumvisible() ? '<C-n>' : '<C-n><C-r>=pumvisible() ? "\<lt>
 inoremap <expr> <M-,> pumvisible() ? '<C-n>' : '<C-x><C-o><C-n><C-p><C-r>=pumvisible() ? "\<lt>Down>" : ""<cr>'
 nnoremap <leader>vc <esc>:Validate<cr>
 nnoremap <leader>fc <esc>:CSearch<space>
+let g:EclimCValidate = 0
 autocmd FileType c,cpp,h,hpp nnoremap <cr> <esc>:CSearchContext<cr>zO
 autocmd FileType c,cpp,h,hpp nnoremap <C-LeftMouse> <LeftMouse><esc>:CSearchContext<cr>zO
 
