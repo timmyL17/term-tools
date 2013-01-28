@@ -130,3 +130,7 @@
 	path = vim/bundle/less
 	url = git://github.com/groenewege/vim-less.git
     ignore = dirty
+[submodule "osx-lion-terminal.app-colors-solarized"]
+	path = osx-lion-terminal.app-colors-solarized
+	url = git://github.com/tomislav/osx-lion-terminal.app-colors-solarized.git
+    ignore = dirty
