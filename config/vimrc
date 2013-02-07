@@ -37,7 +37,7 @@ set encoding=utf-8     " use UTF-8 (default latin1)
 set autoread           " auto-reload modified files (with no local changes)
 set undolevels=65536   " lots of undo (default 1000)
 set history=1024       " lots of history (default 20)
-"set mouse=a            " enable mouse (set mouse= to disable mouse)
+"set mouse=nicr            " enable mouse (set mouse= to disable mouse)
 set mouse=
 set foldmethod=syntax  " fold using syntax by default
 set foldminlines=4     " require a medium size to fold
@@ -65,7 +65,7 @@ set showbreak=\ ↪\     " prefix wrap with ↪
 "set wildmode=list:longest    " list instead of fill in options
 set wildignore=*~,*.o,*.d,*.obj,*.class,*.pyc,*.bak,*.swp,.svn,.git
 set suffixes=~,.o,.d,.obj,.class,.bak,.swp,.pyc
-set completeopt=menu,preview " Completion with a menu
+set completeopt=longest,menuone
 
 " Indentation -- width of 4 spaces
 set autoindent          " automatic indentation
@@ -157,13 +157,18 @@ noremap <leader>wj <c-w>j " move down a window
 noremap <leader>wk <c-w>k " move up a window
 
 " Managing windows
+noremap <leader>wt <c-w>T " move window to its own tab
 noremap <leader>wn <c-w>n " create a new window with empty file
 noremap <leader>ws <c-w>s " split current window
 noremap <leader>wv <c-w>v " split current window vertically
 noremap <leader>wq <c-w>q " quit current window
 noremap <leader>wc <c-w>c " close current window
 noremap <leader>wo <c-w>o " make current window only one on screen
-noremap <leader>wf <c-w>v:CtrlP<cr>
+
+noremap <leader>wH <c-w>H " move window to left
+noremap <leader>wL <c-w>L " move window to right
+noremap <leader>wJ <c-w>J " move window to bottom
+noremap <leader>wK <c-w>K " move window to topw
 
 " Edit file in current window
 noremap <leader>ew :e<space>
@@ -260,24 +265,23 @@ nnoremap <leader>qp <esc>:cn<cr>
 " jump to errors in next file
 nnoremap <leader>qf <esc>:cnf<cr>
 
-" <leader>sf -- style-format code
+" <leader>l -- lint code (format and then show errors)
 "    C/C++  -- ANSI style (A1), with tabs
 "    Python -- PEP8 style
-autocmd FileType c,cpp,h,hpp nnoremap <leader>sf <esc>:%!astyle -A1 -t<cr>
-autocmd FileType python nnoremap <leader>sf <esc>:PyLintAuto<cr><esc>:PyLint<cr>
-
-" <leader>l -- lint code
-"    Python -- PEP8 style
 "    Coffee
-autocmd FileType coffee nnoremap <leader>l <esc>:PyLint<cr>
+autocmd FileType c,cpp,h,hpp nnoremap <leader>l <esc>:%!astyle -A1 -t<cr>
+autocmd FileType python nnoremap <leader>l <esc>:PyLintAuto<cr><esc>:PyLint<cr>
 autocmd FileType coffee nnoremap <leader>l <esc>:CoffeeLint\|cwindow<cr>
 
 " <leader>r -- run/compile code
 "     C/C++  -- run make
 "     Python -- set up by python-mode
 "     Coffee -- watch live compilation
-autocmd FileType c,cpp,h,hpp nnoremap <leader>r <esc>:make<cr>
-autocmd FileType coffee nnoremap <leader>r <esc>:CoffeeCompile watch<cr>
+autocmd FileType c,cpp,h,hpp nnoremap <leader>r <esc>:w<cr><esc>:make<cr>
+autocmd FileType coffee nnoremap <leader>r <esc>:w<cr><esc>:CoffeeCompile watch<cr>
+
+" Save file
+nnoremap <leader>sf <esc>:w<cr>
 
 " }}}
 
@@ -475,10 +479,19 @@ hi link EasyMotionShade Normal
 "   -- bo : open
 "   -- bf : find
 "   -- bc : close
-nnoremap <leader>bt :TagbarToggle<cr><c-w=
-nnoremap <leader>bo :TagbarOpen<cr><c-w>=
-nnoremap <leader>bf :TagbarOpen fj<cr><c-w>=2H:call EasyMotion#JK(0, 0)<cr>
-nnoremap <leader>bc :TagbarClose<cr><c-w>=
+nnoremap <leader>bt <esc>:TagbarToggle<cr>
+nnoremap <leader>bo <esc>:TagbarOpen fj<cr>
+nnoremap <leader>bf <esc>:TagbarOpen fj<cr>2H:call EasyMotion#JK(0, 0)<cr>
+nnoremap <leader>bc <esc>:TagbarClose<cr>
+
+let g:tagbar_width = 30
+let g:tagbar_sort = 0
+let g:tagbar_compact = 1
+let g:tagbar_autofocus = 1
+let g:tagbar_autoclose = 0
+let g:tagbar_foldlevel = 0
+let g:tagbar_autoshowtag = 1
+let g:tagbar_systemenc = 'utf-8'
 
 " NERDTree -- file browser on left (mnemonic: All files)
 "   -- ao : open
@@ -553,9 +566,21 @@ let g:html_indent_inctags = "html,body,head,tbody"
 let g:html_indent_script1 = "inc"
 let g:html_indent_style1 = "inc"
 
-" Python -- check on the fly instead of on write
+" Python pymode -- check for errors
+"   <leader>bp -- set breakpoint
+let g:pymode_rope = 0
 let g:pymode_lint_write = 0
 let g:pymode_lint_onfly = 0
+let g:pymode_lint_checker = "pylint,pep8,mccabe"
+let g:pymode_lint_ignore = "R0912,W0511,W0702,W0704,W0622,E501,R0914,R0911"
+let g:pymode_lint_jump = 1
+let g:pymode_breakpoint_key = '<leader>bp'
+
+" Python jedi -- fancy autocomplete
+"   (jedi#auto_vim_configuration sets completeopt to include a pesky window at
+"   the top which I don't want)
+"   <ctrl+space> or <tab> -- autocomplete
+let g:jedi#auto_vim_configuration = 0
 
 " }}}
 
