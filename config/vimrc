@@ -632,7 +632,8 @@ nnoremap <SID>I_won’t_ever_type_this <Plug>IMAP_JumpForward
 
 " Use PDF instead of DVI by default
 let g:Tex_DefaultTargetFormat='pdf'
-let g:Tex_CompileRule_pdf='rubber --pdf $*'
+"let g:Tex_CompileRule_pdf='rubber --pdf $*'
+let g:Tex_CompileRule_pdf='make'
 if has('unix') && system("uname") == "Darwin\n"  "(mac)
     let g:Tex_ViewRule_pdf='open $*.pdf'
 else
