@@ -283,6 +283,14 @@ autocmd FileType coffee nnoremap <leader>r <esc>:w<cr><esc>:CoffeeCompile watch<
 " Save file
 nnoremap <leader>sf <esc>:w<cr>
 
+" Useful commands for vimdiff3 under git
+"     diffupdate
+"     get local hunk
+"     get remote hunk
+nnoremap <leader>du <esc>:diffupdate<cr>
+nnoremap <leader>dgl <esc>:diffget LOCAL<cr>
+nnoremap <leader>dgr <esc>:diffget REMOTE<cr>
+
 " }}}
 
 " Global fixes {{{
