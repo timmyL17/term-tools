@@ -16,6 +16,7 @@
 	staged = diff --staged
 	unstage = reset HEAD
     pushall = !"git remote | xargs -n1 git push --all; git remote | xargs -n1 git push --tags"
+    forcepushall = !"git remote | xargs -n1 git push -f --all; git remote | xargs -n1 git push -f --tags"
     rmbranch = !"f() { git remote | xargs -n1 -I {} git push {} ":"$1; git branch -d $1; }; f"
 	sync-hard = !"git fetch && git reset --hard"
 	prune-all = !"git remote | xargs -n 1 git remote prune"
