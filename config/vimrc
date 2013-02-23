@@ -19,7 +19,7 @@ filetype plugin indent on
 
 " Dark mode unless there is a flag file
 " (useful for when you toggle modes often)
-if filereadable($HOME . "/.vim-background-light")
+if filereadable($HOME . "/.vim-light")
 	set background=light
 else
 	set background=dark
@@ -34,6 +34,7 @@ call togglebg#map("<F6>")
 " Misc
 let is_bash=1          " we are using bash
 set encoding=utf-8     " use UTF-8 (default latin1)
+set termencoding=utf-8
 set autoread           " auto-reload modified files (with no local changes)
 set undolevels=65536   " lots of undo (default 1000)
 set history=1024       " lots of history (default 20)
@@ -68,12 +69,13 @@ set suffixes=~,.o,.d,.obj,.class,.bak,.swp,.pyc
 set completeopt=longest,menuone
 
 " Indentation -- width of 4 spaces
-set autoindent          " automatic indentation
-set nosmartindent       " disable C-style indenting by default (only useful for C/C++)
-set tabstop=4           " Number of spaces that a <Tab> in the file counts for (default 8)
-set shiftwidth=4        " Number of spaces to use for each step of (auto)indent.
-set textwidth=0         " no hard wrapping by default
-set expandtab           " use spaces instead of tabs
+set autoindent     " automatic indentation
+set copyindent     " indent new lines by current indent
+set nosmartindent  " disable C-style indenting by default (only useful for C/C++)
+set tabstop=4      " Number of spaces that a <Tab> in the file counts for (default 8)
+set shiftwidth=4   " Number of spaces to use for each step of (auto)indent.
+set textwidth=0    " no hard wrapping by default
+set expandtab      " use spaces instead of tabs
 
 " Better search
 set incsearch      " incremental search
@@ -83,6 +85,7 @@ set hlsearch       " enable search highlighting (change to nohlsearch to disable
                    " clear highlight with :noh
 
 " Show more things
+set cursorline     " highlight current line
 set showmode       " show which mode we are in
 set showcmd        " show state of keyboard input
 set showmatch      " show brace match
@@ -93,6 +96,20 @@ set ruler          " show position in bottom right
 " STFU
 set noerrorbells visualbell t_vb=
 autocmd GUIEnter * set visualbell t_vb=
+
+" Open folds by default
+autocmd BufWinEnter * normal zR
+
+" Detect file changes when idle or siwtching windows
+autocmd CursorHold * checktime
+autocmd WinEnter * checktime
+
+" Store swapfiles in a central location
+set backup
+set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
+set backupskip=/tmp/*,/private/tmp/*
+set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
+set writebackup
 
 " Use , instead of \ for leader key (must be defined first)
 let mapleader=','
@@ -106,6 +123,9 @@ execute "set <xLeft>=\e[1;*D"
 " }}}
 
 " Windows and tabs {{{
+
+" Quit vim
+noremap <leader>qa <esc>:qa<cr>
 
 " Left/right or c-h/c-l -- switch tabs
 "noremap <left>  gT
@@ -208,6 +228,10 @@ nmap Y y$
 noremap j gj
 noremap k gk
 
+" Scroll slightly faster
+noremap <c-e> <c-e><c-e>
+noremap <c-y> <c-y><c-y>
+
 " Indent with tab, unindent with shift-tab
 nnoremap <tab> >>
 vnoremap <tab> >
@@ -243,9 +267,6 @@ cmap w!! w !sudo tee % >/dev/null
 
 " <leader>sa : select all
 nnoremap <leader>sa 1GVG
-
-" backspace in normal mode
-nmap <bs> X
 
 " <leader>mk : run make
 noremap <leader>mk :make<cr>
@@ -316,6 +337,9 @@ if has('mac')
 	fixdel
 endif
 
+" Backspace in normal mode
+nmap <bs> X
+
 " Jump to last known line when opening a file (change ' to ` to do column too)
 autocmd BufReadPost *
   \ if line("'\"") > 0 && line("'\"") <= line("$") |
@@ -339,10 +363,6 @@ fun! DeleteTrailingWS()
 	exe "normal `q"
 	":ShowMarksClearMark
 endfun
-" commented out: vim seems to hang on save with this
-"autocmd BufWrite *.py :call DeleteTrailingWS()
-"autocmd BufWrite *.sh :call DeleteTrailingWS()
-"autocmd BufWrite *.coffee :call DeleteTrailingWS()
 noremap <leader>dw <esc>:call DeleteTrailingWS()<cr>
 
 " }}}
@@ -437,7 +457,6 @@ noremap <leader>fb <esc>:CtrlPBuffer<cr>      " find buffer
 noremap <leader>fq <esc>:CtrlPQuickfix<cr>    " find in quickfix
 noremap <leader>fu <esc>:CtrlPUndo<cr>        " find in undo
 noremap <leader>fl <esc>:CtrlPLine<cr>        " find in file (by line)
-noremap <c-f> <esc>:CtrlPLine<cr>             " find in file (by line)
 
 " CtrlP -- ignore files
 let g:ctrlp_custom_ignore = {
@@ -577,18 +596,26 @@ let g:html_indent_style1 = "inc"
 " Python pymode -- check for errors
 "   <leader>bp -- set breakpoint
 let g:pymode_rope = 0
+let g:pymode_doc = 0
 let g:pymode_lint_write = 0
 let g:pymode_lint_onfly = 0
 let g:pymode_lint_checker = "pylint,pep8,mccabe"
 let g:pymode_lint_ignore = "R0912,W0511,W0702,W0704,W0622,E501,R0914,R0911"
 let g:pymode_lint_jump = 1
 let g:pymode_breakpoint_key = '<leader>bp'
+let g:pymode_folding = 1
 
 " Python jedi -- fancy autocomplete
 "   (jedi#auto_vim_configuration sets completeopt to include a pesky window at
 "   the top which I don't want)
 "   <ctrl+space> or <tab> -- autocomplete
+"   <enter>         -- jump to declaration
+"   <leader><enter> -- jump to definition
+"   <leader>rn      -- rename
 let g:jedi#auto_vim_configuration = 0
+let g:jedi#goto_command = "<cr>"
+let g:jedi#get_definition_command = "<leader><cr>"
+let g:jedi#rename_command = "<leader>rn"
 
 " }}}
 
