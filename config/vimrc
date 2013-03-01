@@ -612,10 +612,12 @@ let g:pymode_folding = 1
 "   <enter>         -- jump to declaration
 "   <leader><enter> -- jump to definition
 "   <leader>rn      -- rename
+"   Do not automatically pop up menu when typing dot
 let g:jedi#auto_vim_configuration = 0
 let g:jedi#goto_command = "<cr>"
 let g:jedi#get_definition_command = "<leader><cr>"
 let g:jedi#rename_command = "<leader>rn"
+let g:jedi#popup_on_dot = 0
 
 " }}}
 
