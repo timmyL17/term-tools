@@ -102,10 +102,6 @@
 	path = tomorrow-theme
 	url = git://github.com/chriskempson/tomorrow-theme.git
     ignore = dirty
-[submodule "vim/bundle/tomorrow-night"]
-	path = vim/bundle/tomorrow-night
-	url = git://github.com/ootoovak/vim-tomorrow-night.git
-    ignore = dirty
 [submodule "vim/bundle/python-mode"]
 	path = vim/bundle/python-mode
 	url = git://github.com/klen/python-mode.git
