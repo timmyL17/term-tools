@@ -508,8 +508,8 @@ hi link EasyMotionShade Normal
 "   -- bf : find
 "   -- bc : close
 nnoremap <leader>bt <esc>:TagbarToggle<cr>
-nnoremap <leader>bo <esc>:TagbarOpen fj<cr>
-nnoremap <leader>bf <esc>:TagbarOpen fj<cr>2H:call EasyMotion#JK(0, 0)<cr>
+nnoremap <leader>bo <esc>:TagbarOpen fjc<cr>
+nnoremap <leader>bf <esc>:TagbarOpen fjc<cr>2H:call EasyMotion#JK(0, 0)<cr>
 nnoremap <leader>bc <esc>:TagbarClose<cr>
 
 let g:tagbar_width = 30
