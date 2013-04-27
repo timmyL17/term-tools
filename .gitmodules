@@ -134,6 +134,4 @@
 	path = osx-lion-terminal.app-colors-solarized
 	url = git://github.com/tomislav/osx-lion-terminal.app-colors-solarized.git
     ignore = dirty
-[submodule "vim/bundle/jedi"]
-	path = vim/bundle/jedi
-	url = https://github.com/davidhalter/jedi-vim
+
