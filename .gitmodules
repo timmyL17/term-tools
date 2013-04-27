@@ -126,4 +126,3 @@
 	path = osx-lion-terminal.app-colors-solarized
 	url = git://github.com/tomislav/osx-lion-terminal.app-colors-solarized.git
     ignore = dirty
-
