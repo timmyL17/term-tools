@@ -50,10 +50,12 @@ fi
 # ls with a 1-second timeout
 if uname | grep Darwin > /dev/null; then
 	# Mac version
+	alias ls="ls -G"
 	function ls_safe {
 		~/term-tools/config/timeout3.sh -t 1 ls -G
 	}
 else
+    alias ls="ls --color=auto"
 	function ls_safe {
 		~/term-tools/config/timeout3.sh -t 1 ls --color=auto
 	}
@@ -119,11 +121,12 @@ if [ "$BASH_VERSION" ]; then
 	PS1_COLOR="\[\e[34m\]"
 	GIT_COLOR="\[\e[33m\]"
 	TITLEBAR="\[\e]0;\h \w\007\]"
-	if command -v __git_ps1 >/dev/null 2>&1; then
-	  PS1="$TITLEBAR\n$PS1_COLOR\h:\w$GIT_COLOR\$(__git_ps1)$PS1_COLOR\n \$$DEFAULT_COLOR "
-	else
-	  PS1="$TITLEBAR\n$PS1_COLOR\h:\w\n \$$DEFAULT_COLOR "
-	fi
+
+    if command -v __git_ps1 >/dev/null 2>&1; then
+      PS1="$TITLEBAR\n$PS1_COLOR\h:\w$GIT_COLOR\$(__git_ps1)$PS1_COLOR\n \$$DEFAULT_COLOR "
+    else
+      PS1="$TITLEBAR\n$PS1_COLOR\h:\w\n \$$DEFAULT_COLOR "
+    fi
 
 	# don't put duplicate lines or lines starting with space in the history.
 	export HISTCONTROL=ignoreboth
