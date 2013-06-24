@@ -41,7 +41,7 @@ set history=1024       " lots of history (default 20)
 "set mouse=nicr            " enable mouse (set mouse= to disable mouse)
 set mouse=
 set foldmethod=syntax  " fold using syntax by default
-set foldminlines=4     " require a medium size to fold
+"set foldminlines=4     " require a medium size to fold
 set foldnestmax=3      " max 3 fold levels for syntax/indent folding
 "set hidden             " allow un-saved buffers in background
 set lazyredraw         " no redraws in macros
