@@ -33,4 +33,4 @@
 [mergetool "gvimdiff3"]
 	cmd = gvim -f -d -c \"wincmd J\" \"$MERGED\" \"$LOCAL\" \"$BASE\" \"$REMOTE\"
 [merge]
-	tool = vimdiff3
+	tool = vimdiff
