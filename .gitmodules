@@ -126,9 +126,6 @@
 	path = osx-lion-terminal.app-colors-solarized
 	url = git://github.com/tomislav/osx-lion-terminal.app-colors-solarized.git
     ignore = dirty
-[submodule "vim/bundle/powerline"]
-	path = vim/bundle/powerline
-	url = git://github.com/Lokaltog/powerline.git
 [submodule "powerline-fonts"]
 	path = powerline-fonts
 	url = git://github.com/Lokaltog/powerline-fonts.git
