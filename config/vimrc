@@ -395,8 +395,7 @@ autocmd BufNewFile,BufReadPost *.coffee setl shiftwidth=2 tabstop=2 softtabstop=
 " Plugin config {{{
 
 " Powerline -- fancy status line
-set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
-"let g:Powerline_symbols = 'compatible'
+let g:Powerline_symbols = 'fancy'
 let g:Powerline_stl_path_style = 'filename'
 set laststatus=2  " 2 means always show status
 
