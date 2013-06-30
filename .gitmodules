@@ -130,3 +130,6 @@
 	path = vim/bundle/makeshift
 	url = git://github.com/johnsyweb/vim-makeshift.git
     ignore = dirty
+[submodule "vim/bundle/powerline"]
+	path = vim/bundle/powerline
+	url = git@github.com:Lokaltog/powerline.git
