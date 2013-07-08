@@ -390,6 +390,9 @@ autocmd FileType c,cpp,h,cpp inoremap # X#
 " Coffeescript -- 2-space tabs
 autocmd BufNewFile,BufReadPost *.coffee setl shiftwidth=2 tabstop=2 softtabstop=2 expandtab
 
+" Scons
+au BufNewFile,BufRead SCons* set filetype=scons
+
 " }}}
 
 " Plugin config {{{

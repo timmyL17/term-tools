@@ -133,3 +133,8 @@
 [submodule "vim/bundle/powerline"]
 	path = vim/bundle/powerline
 	url = git@github.com:Lokaltog/powerline.git
+    ignore = dirty
+[submodule "vim/bundle/scons.vim"]
+	path = vim/bundle/scons.vim
+	url = git@github.com:vim-scripts/scons.vim.git
+    ignore = dirty
