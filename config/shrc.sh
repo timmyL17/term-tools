@@ -122,6 +122,10 @@ if [ "$BASH_VERSION" ]; then
 	GIT_COLOR="\[\e[33m\]"
 	TITLEBAR="\[\e]0;\h \w\007\]"
 
+    if [ -s /usr/share/git/completion/git-prompt.sh ]; then
+        source /usr/share/git/completion/git-prompt.sh
+    fi
+
     if command -v __git_ps1 >/dev/null 2>&1; then
       PS1="$TITLEBAR\n$PS1_COLOR\h:\w$GIT_COLOR\$(__git_ps1)$PS1_COLOR\n \$$DEFAULT_COLOR "
     else
