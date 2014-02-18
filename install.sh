@@ -59,7 +59,7 @@ for f in ~/.zshrc ~/.bashrc; do
 
         if [[ $(grep -c 'source ~/term-tools/ssh-find-agent/ssh-find-agent.bash' $f) == "1" ]]; then
             echo 'source ~/term-tools/ssh-find-agent/ssh-find-agent.bash' >> $f
-            echo 'if ! test $SSH_AUTH_SOCK; then' >> $f
+            echo 'if [ ! -e $SSH_AUTH_SOCK ]; then' >> $f
             echo '    set_ssh_agent_socket' >> $f
             echo 'fi' >> $f
         fi
