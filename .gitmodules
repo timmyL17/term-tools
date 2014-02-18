@@ -138,3 +138,7 @@
 	path = vim/bundle/scons.vim
 	url = git@github.com:vim-scripts/scons.vim.git
     ignore = dirty
+[submodule "ssh-find-agent"]
+	path = ssh-find-agent
+	url = git://github.com/wwalker/ssh-find-agent.git
+    ignore = dirty
