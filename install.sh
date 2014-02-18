@@ -52,9 +52,18 @@ done
 
 for f in ~/.zshrc ~/.bashrc; do
 	if [[ -s $f ]]; then
+
 		if [[ $(grep -c 'source ~/term-tools/config/shrc.sh' $f) == "0" ]]; then
 			echo '[[ -s ~/term-tools/config/shrc.sh ]] && source ~/term-tools/config/shrc.sh' >> $f
 		fi
+
+        if [[ $(grep -c 'source ~/term-tools/ssh-find-agent/ssh-find-agent.bash' $f) == "1" ]]; then
+            echo 'source ~/term-tools/ssh-find-agent/ssh-find-agent.bash' >> $f
+            echo 'if ! test $SSH_AUTH_SOCK; then' >> $f
+            echo '    set_ssh_agent_socket' >> $f
+            echo 'fi' >> $f
+        fi
+
 		if [[ $(grep -c 'source ~/term-tools/config/shrc-tmux.sh' $f) == "0" ]]; then
 			echo '' >> $f
 			echo '# This line starts all new shells inside tmux (if tmux is installed and set up).' >> $f
