@@ -383,7 +383,7 @@ autocmd FileType crontab setlocal backupcopy=yes
 
 " C/C++ -- smart indentation
 " control indentation in c/c++ files with cinoptions
-autocmd FileType c,cpp,h,hpp setlocal smartindent cindent cinoptions=(0,t0,+0
+autocmd FileType c,cpp,h,hpp setlocal smartindent cindent cinoptions=(0,t0,+0,g0
 " by default smartindent unindents lines starting with #. disable this
 autocmd FileType c,cpp,h,cpp inoremap # X#
 
