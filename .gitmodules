@@ -22,10 +22,6 @@
 	path = vim/bundle/showmarks
 	url = git://github.com/vim-scripts/ShowMarks.git
     ignore = dirty
-[submodule "vim/bundle/matchit"]
-	path = vim/bundle/matchit
-	url = git://github.com/tsaleh/vim-matchit.git
-    ignore = dirty
 [submodule "vim/bundle/supertab"]
 	path = vim/bundle/supertab
 	url = git://github.com/ervandew/supertab.git
