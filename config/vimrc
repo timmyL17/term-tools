@@ -624,6 +624,13 @@ let g:jedi#get_definition_command = "<leader><cr>"
 let g:jedi#rename_command = "<leader>rn"
 let g:jedi#popup_on_dot = 0
 
+" Tell Makeshift to associate makefile as well as Makefile with
+" the make command
+let g:makeshift_systems = {
+    \'makefile': 'make',
+    \}
+
+
 " }}}
 
 " Latex plugin config {{{
