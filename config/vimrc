@@ -664,15 +664,15 @@ set grepprg=grep\ -nH\ $*
 let g:tex_indent_brace=0
 
 " Latex leader: use , instead of `
-let g:Tex_Leader=','
+let g:Tex_Leader='`'
 
 " Don't fold paragraphs or subsubsections
 " (add ,subsubsection,paragraph to end of list to fold those too)
-let g:Tex_FoldedSections='part,chapter,section,%%fakesection,subsection'
+let g:Tex_FoldedSections='part,chapter,section,%%fakesection,subsection,paragraph'
 
 " Don't fold \item
 " (add item, to the start of list to fold it too)
-let g:Tex_FoldedMisc='preamble,<<<'
+let g:Tex_FoldedMisc='item,preamble,<<<'
 
 " Directory to scan for latex figure images
 let g:Tex_ImageDir='.'
