@@ -138,3 +138,6 @@
 	path = ssh-find-agent
 	url = git://github.com/wwalker/ssh-find-agent.git
     ignore = dirty
+[submodule "vim/bundle/vim-indent-guides"]
+	path = vim/bundle/vim-indent-guides
+	url = https://github.com/nathanaelkane/vim-indent-guides.git
