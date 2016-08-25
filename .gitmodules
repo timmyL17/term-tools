@@ -36,7 +36,7 @@
     ignore = dirty
 [submodule "vim/bundle/latex"]
 	path = vim/bundle/latex
-	url = git://vim-latex.git.sourceforge.net/gitroot/vim-latex/vim-latex
+	url = https://github.com/seanbell/vim-latex
     ignore = dirty
 [submodule "vim/bundle/tagbar"]
 	path = vim/bundle/tagbar
