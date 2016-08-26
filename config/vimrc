@@ -565,6 +565,8 @@ let g:syntastic_mode_map = { 'mode': 'active',
 						   \ 'active_filetypes': [],
 						   \ 'passive_filetypes': ['c', 'cpp', 'h', 'hpp'] }
 
+let g:syntastic_javascript_checkers = ['jshint']
+
 " Fugutive -- git (note the other command: <leader>d for inline diff)
 noremap <leader>gb <esc>:Gblame<cr>
 noremap <leader>gs <esc>:Gstatus<cr>
