@@ -468,15 +468,27 @@ let g:ctrlp_custom_ignore = {
 	\ 'file': '\.exe$\|\.so$\|\.os$\|\.dll$\|\.o$\|\.d$\|\.pyc$\|\.swp$',
 	\ }
 
-" CtrlP -- only search current directory
-let g:ctrlp_working_path_mode = ''
+" CtrlP -- look up to find project root
+let g:ctrlp_working_path_mode = 'rwa'
+
+" CtrlP -- special root marker for Ch
+let g:ctrlp_root_markers = ['buildme.bat']
+
+" CtrlP -- Works better for some reason I haven't figured out yet
+let g:ctrlp_user_command = 'find %s -type f'
+
+" CtrlP -- make sure to use caching
+let g:ctrlp_use_caching = 1
+
+" CtrlP -- cross-session caching
+let g:ctrlp_clear_cache_on_exit = 0
 
 " CtrlP -- refresh file tree on write or focus change
-augroup CtrlPExtension
-  autocmd!
-  autocmd FocusGained * ClearCtrlPCache
-  autocmd BufWritePost * ClearCtrlPCache
-augroup END
+"augroup CtrlPExtension
+"  autocmd!
+"  autocmd FocusGained * ClearCtrlPCache
+"  autocmd BufWritePost * ClearCtrlPCache
+"augroup END
 
 " TabMan -- fancy tab manager
 let g:tabman_toggle = '<leader>tm'
@@ -563,7 +575,7 @@ let g:syntastic_quiet_messages= {'level' : 'warnings'}
 
 let g:syntastic_mode_map = { 'mode': 'active',
 						   \ 'active_filetypes': [],
-						   \ 'passive_filetypes': ['c', 'cpp', 'h', 'hpp'] }
+						   \ 'passive_filetypes': ['py', 'c', 'cpp', 'h', 'hpp'] }
 
 let g:syntastic_javascript_checkers = ['jshint']
 
@@ -602,6 +614,7 @@ let g:html_indent_style1 = "inc"
 
 " Python pymode -- check for errors
 "   <leader>bp -- set breakpoint
+let g:pymode = 1
 let g:pymode_rope = 0
 let g:pymode_doc = 0
 let g:pymode_lint_write = 0
@@ -611,7 +624,7 @@ let g:pymode_lint_ignore = "R0912,W0511,W0702,W0704,W0622,E501,R0914,R0911"
 let g:pymode_lint_jump = 0
 let g:pymode_lint_on_write = 0
 let g:pymode_breakpoint_key = '<leader>bp'
-let g:pymode_folding = 1
+let g:pymode_folding = 0
 let g:pymode_options_colorcolumn = 0
 
 " Python jedi -- fancy autocomplete
