@@ -29,7 +29,7 @@ fi
 
 # solarized color scheme
 if command -v dircolors >/dev/null 2>&1; then
-	eval $(dircolors $TERM_TOOLS_DIR/dircolors-solarized/dircolors.ansi-dark)
+    eval $(dircolors $TERM_TOOLS_DIR/dircolors-solarized/dircolors.ansi-dark)
 fi
 
 # syntax highlighting in less
@@ -127,9 +127,9 @@ if [ "$BASH_VERSION" ]; then
     fi
 
     if command -v __git_ps1 >/dev/null 2>&1; then
-      PS1="$TITLEBAR\n$PS1_COLOR\h:\w$GIT_COLOR\$(__git_ps1)$PS1_COLOR\n \$$DEFAULT_COLOR "
+      PS1="$TITLEBAR\n$PS1_COLOR\u@\h:\w$GIT_COLOR\$(__git_ps1)$PS1_COLOR\n \$$DEFAULT_COLOR "
     else
-      PS1="$TITLEBAR\n$PS1_COLOR\h:\w\n \$$DEFAULT_COLOR "
+      PS1="$TITLEBAR\n$PS1_COLOR\u@\h:\w\n \$$DEFAULT_COLOR "
     fi
 
 	# don't put duplicate lines or lines starting with space in the history.

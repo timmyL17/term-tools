@@ -1,38 +1,38 @@
 [submodule "vim/bundle/fugitive"]
 	path = vim/bundle/fugitive
-	url = git://github.com/tpope/vim-fugitive.git
+	url = https://github.com/tpope/vim-fugitive.git
     ignore = dirty
 [submodule "vim/bundle/closetag"]
 	path = vim/bundle/closetag
-	url = git://github.com/docunext/closetag.vim.git
+	url = https://github.com/docunext/closetag.vim.git
     ignore = dirty
 [submodule "vim/bundle/nerdcommenter"]
 	path = vim/bundle/nerdcommenter
-	url = git://github.com/scrooloose/nerdcommenter.git
+	url = https://github.com/scrooloose/nerdcommenter.git
     ignore = dirty
 [submodule "vim/bundle/solarized"]
 	path = vim/bundle/solarized
-	url = git://github.com/altercation/vim-colors-solarized.git
+	url = https://github.com/altercation/vim-colors-solarized.git
     ignore = dirty
 [submodule "vim/bundle/syntastic"]
 	path = vim/bundle/syntastic
-	url = git://github.com/scrooloose/syntastic.git
+	url = https://github.com/scrooloose/syntastic.git
     ignore = dirty
 [submodule "vim/bundle/showmarks"]
 	path = vim/bundle/showmarks
-	url = git://github.com/vim-scripts/ShowMarks.git
+	url = https://github.com/vim-scripts/ShowMarks.git
     ignore = dirty
 [submodule "vim/bundle/supertab"]
 	path = vim/bundle/supertab
-	url = git://github.com/ervandew/supertab.git
+	url = https://github.com/ervandew/supertab.git
     ignore = dirty
 [submodule "vim/bundle/easymotion"]
 	path = vim/bundle/easymotion
-	url = git://github.com/Lokaltog/vim-easymotion.git
+	url = https://github.com/Lokaltog/vim-easymotion.git
     ignore = dirty
 [submodule "vim/bundle/surround"]
 	path = vim/bundle/surround
-	url = git://github.com/tpope/vim-surround.git
+	url = https://github.com/tpope/vim-surround.git
     ignore = dirty
 [submodule "vim/bundle/latex"]
 	path = vim/bundle/latex
@@ -40,107 +40,107 @@
     ignore = dirty
 [submodule "vim/bundle/tagbar"]
 	path = vim/bundle/tagbar
-	url = git://github.com/majutsushi/tagbar.git
+	url = https://github.com/majutsushi/tagbar.git
     ignore = dirty
 [submodule "vim/bundle/nerdtree"]
 	path = vim/bundle/nerdtree
-	url = git://github.com/scrooloose/nerdtree.git
+	url = https://github.com/scrooloose/nerdtree.git
     ignore = dirty
 [submodule "vim/bundle/fswitch"]
 	path = vim/bundle/fswitch
-	url = git://github.com/derekwyatt/vim-fswitch.git
+	url = https://github.com/derekwyatt/vim-fswitch.git
     ignore = dirty
 [submodule "vim/bundle/gitignore"]
 	path = vim/bundle/gitignore
-	url = git://github.com/vitaly/vim-gitignore.git
+	url = https://github.com/vitaly/vim-gitignore.git
     ignore = dirty
 [submodule "vim/bundle/gundo"]
 	path = vim/bundle/gundo
-	url = git://github.com/sjl/gundo.vim.git
+	url = https://github.com/sjl/gundo.vim.git
     ignore = dirty
 [submodule "vim/bundle/ctrlp"]
 	path = vim/bundle/ctrlp
-	url = git@github.com:ctrlpvim/ctrlp.vim.git
+	url = https://github.com/ctrlpvim/ctrlp.vim.git
     ignore = dirty
 [submodule "vim/bundle/tabman"]
 	path = vim/bundle/tabman
-	url = git://github.com/kien/tabman.vim.git
+	url = https://github.com/kien/tabman.vim.git
     ignore = dirty
 [submodule "autojump"]
 	path = autojump
-	url = git://github.com/joelthelion/autojump.git
+	url = https://github.com/joelthelion/autojump.git
     ignore = dirty
 [submodule "dircolors-solarized"]
 	path = dircolors-solarized
-	url = git://github.com/seebi/dircolors-solarized.git
+	url = https://github.com/seebi/dircolors-solarized.git
     ignore = dirty
 [submodule "gnome-terminal-colors-solarized"]
 	path = gnome-terminal-colors-solarized
-	url = git://github.com/sigurdga/gnome-terminal-colors-solarized.git
+	url = https://github.com/sigurdga/gnome-terminal-colors-solarized.git
     ignore = dirty
 [submodule "vim/bundle/rainbow-parentheses"]
 	path = vim/bundle/rainbow-parentheses
-	url = git://github.com/kien/rainbow_parentheses.vim.git
+	url = https://github.com/kien/rainbow_parentheses.vim.git
     ignore = dirty
 [submodule "oh-my-zsh-custom/zsh-syntax-highlighting"]
 	path = oh-my-zsh-custom/zsh-syntax-highlighting
-	url = git://github.com/zsh-users/zsh-syntax-highlighting.git
+	url = https://github.com/zsh-users/zsh-syntax-highlighting.git
     ignore = dirty
 [submodule "guake-colors-solarized"]
 	path = guake-colors-solarized
-	url = git://github.com/coolwanglu/guake-colors-solarized.git
+	url = https://github.com/coolwanglu/guake-colors-solarized.git
     ignore = dirty
 [submodule "tomorrow-theme"]
 	path = tomorrow-theme
-	url = git://github.com/chriskempson/tomorrow-theme.git
+	url = https://github.com/chriskempson/tomorrow-theme.git
     ignore = dirty
 [submodule "vim/bundle/python-mode"]
 	path = vim/bundle/python-mode
-	url = git://github.com/klen/python-mode.git
+	url = https://github.com/klen/python-mode.git
     ignore = dirty
 [submodule "vim/bundle/javascript"]
 	path = vim/bundle/javascript
-	url = git://github.com/pangloss/vim-javascript.git
+	url = https://github.com/pangloss/vim-javascript.git
     ignore = dirty
 [submodule "vim/bundle/yankstack"]
 	path = vim/bundle/yankstack
-	url = git://github.com/maxbrunsfeld/vim-yankstack.git
+	url = https://github.com/maxbrunsfeld/vim-yankstack.git
     ignore = dirty
 [submodule "cdd"]
 	path = cdd
-	url = git://github.com/jestor/cdd.git
+	url = https://github.com/jestor/cdd.git
     ignore = dirty
 [submodule "vim/bundle/coffee-script"]
 	path = vim/bundle/coffee-script
-	url = git://github.com/kchmck/vim-coffee-script.git
+	url = https://github.com/kchmck/vim-coffee-script.git
     ignore = dirty
 [submodule "vim/bundle/less"]
 	path = vim/bundle/less
-	url = git://github.com/groenewege/vim-less.git
+	url = https://github.com/groenewege/vim-less.git
     ignore = dirty
 [submodule "osx-lion-terminal.app-colors-solarized"]
 	path = osx-lion-terminal.app-colors-solarized
-	url = git://github.com/tomislav/osx-lion-terminal.app-colors-solarized.git
+	url = https://github.com/tomislav/osx-lion-terminal.app-colors-solarized.git
     ignore = dirty
 [submodule "vim/bundle/makeshift"]
 	path = vim/bundle/makeshift
-	url = git://github.com/johnsyweb/vim-makeshift.git
+	url = https://github.com/johnsyweb/vim-makeshift.git
     ignore = dirty
 [submodule "vim/bundle/powerline"]
 	path = vim/bundle/powerline
-	url = git@github.com:powerline/powerline.git
+	url = https://github.com/powerline/powerline.git
     ignore = dirty
 [submodule "vim/bundle/scons.vim"]
 	path = vim/bundle/scons.vim
-	url = git@github.com:vim-scripts/scons.vim.git
+	url = https://github.com/vim-scripts/scons.vim.git
     ignore = dirty
 [submodule "ssh-find-agent"]
 	path = ssh-find-agent
-	url = git://github.com/wwalker/ssh-find-agent.git
+	url = https://github.com/wwalker/ssh-find-agent.git
     ignore = dirty
 [submodule "vim/bundle/vim-indent-guides"]
 	path = vim/bundle/vim-indent-guides
 	url = https://github.com/nathanaelkane/vim-indent-guides.git
 [submodule "mintty-colors-solarized"]
 	path = mintty-colors-solarized
-	url = git@github.com:mavnn/mintty-colors-solarized.git
+	url = https://github.com/mavnn/mintty-colors-solarized.git

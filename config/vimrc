@@ -31,6 +31,9 @@ syntax on
 colorscheme solarized
 call togglebg#map("<F6>")
 
+" Need this inside docker, or else text has a different background color
+hi Normal ctermbg=NONE
+
 " Misc
 let is_bash=1          " we are using bash
 set encoding=utf-8     " use UTF-8 (default latin1)
