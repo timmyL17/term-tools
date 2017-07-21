@@ -598,6 +598,9 @@ hi ShowMarksHLu ctermfg=white ctermbg=darkgray cterm=bold guifg=blue guibg=light
 hi ShowMarksHLo ctermfg=white ctermbg=darkgray cterm=bold guifg=blue guibg=lightblue gui=bold
 hi ShowMarksHLm ctermfg=white ctermbg=darkgray cterm=bold guifg=blue guibg=lightblue gui=bold
 
+" Ctags file
+set tags=tags;
+
 " html indentation + vim javascript
 let g:html_indent_inctags = "html,body,head,tbody"
 let g:html_indent_script1 = "inc"
