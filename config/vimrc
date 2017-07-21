@@ -419,16 +419,16 @@ autocmd FileType c,cpp,h,hpp hi Special ctermfg=4
 "   -- <leader>vc : validate c++ code
 "   -- <leader>fc : find c++ tag
 " Disable automatic validation (slows saves down)
-set completeopt=longest,menuone
-inoremap <nul> <C-x><C-u><C-n>
-inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<cr>"
-inoremap <expr> <C-n> pumvisible() ? '<C-n>' : '<C-n><C-r>=pumvisible() ? "\<lt>Down>" : ""<cr>'
-inoremap <expr> <M-,> pumvisible() ? '<C-n>' : '<C-x><C-o><C-n><C-p><C-r>=pumvisible() ? "\<lt>Down>" : ""<cr>'
-nnoremap <leader>vc <esc>:Validate<cr>
-nnoremap <leader>fc <esc>:CSearch<space>
-let g:EclimCValidate = 0
-autocmd FileType c,cpp,h,hpp nnoremap <cr> <esc>:CSearchContext<cr>zO
-autocmd FileType c,cpp,h,hpp nnoremap <C-LeftMouse> <LeftMouse><esc>:CSearchContext<cr>zO
+"set completeopt=longest,menuone
+"inoremap <nul> <C-x><C-u><C-n>
+"inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<cr>"
+"inoremap <expr> <C-n> pumvisible() ? '<C-n>' : '<C-n><C-r>=pumvisible() ? "\<lt>Down>" : ""<cr>'
+"inoremap <expr> <M-,> pumvisible() ? '<C-n>' : '<C-x><C-o><C-n><C-p><C-r>=pumvisible() ? "\<lt>Down>" : ""<cr>'
+"nnoremap <leader>vc <esc>:Validate<cr>
+"nnoremap <leader>fc <esc>:CSearch<space>
+"let g:EclimCValidate = 0
+"autocmd FileType c,cpp,h,hpp nnoremap <cr> <esc>:CSearchContext<cr>zO
+"autocmd FileType c,cpp,h,hpp nnoremap <C-LeftMouse> <LeftMouse><esc>:CSearchContext<cr>zO
 
 " Automatically insert C++ header gates for new h/hpp files
 function! s:insert_gates()
@@ -469,7 +469,11 @@ let g:ctrlp_custom_ignore = {
 	\ }
 
 " CtrlP -- only search current directory
-let g:ctrlp_working_path_mode = ''
+let g:ctrlp_working_path_mode = 'r'
+let g:ctrlp_root_markers = ['dev_config.py', '.git']
+let g:ctrlp_use_caching = 1
+let g:ctrlp_clear_cache_on_exit = 0
+let g:ctrlp_max_files = 200000
 
 " CtrlP -- refresh file tree on write or focus change
 augroup CtrlPExtension
