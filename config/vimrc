@@ -473,14 +473,14 @@ let g:ctrlp_working_path_mode = 'r'
 let g:ctrlp_root_markers = ['dev_config.py', '.git']
 let g:ctrlp_use_caching = 1
 let g:ctrlp_clear_cache_on_exit = 0
-let g:ctrlp_max_files = 200000
+let g:ctrlp_max_files = 500000
 
 " CtrlP -- refresh file tree on write or focus change
-augroup CtrlPExtension
-  autocmd!
-  autocmd FocusGained * ClearCtrlPCache
-  autocmd BufWritePost * ClearCtrlPCache
-augroup END
+"augroup CtrlPExtension
+"  autocmd!
+"  autocmd FocusGained * ClearCtrlPCache
+"  autocmd BufWritePost * ClearCtrlPCache
+"augroup END
 
 " TabMan -- fancy tab manager
 let g:tabman_toggle = '<leader>tm'
