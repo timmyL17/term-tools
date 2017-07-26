@@ -464,8 +464,8 @@ noremap <leader>fl <esc>:CtrlPLine<cr>        " find in file (by line)
 
 " CtrlP -- ignore files
 let g:ctrlp_custom_ignore = {
-	\ 'dir':  '\.git$\|\.hg$\|\.svn$|\.app$|\.dSYM$',
-	\ 'file': '\.exe$\|\.so$\|\.os$\|\.dll$\|\.o$\|\.d$\|\.pyc$\|\.swp$|\.tar$|\.zip$|\.lib$|\.a$|\.dylib$',
+	\ 'dir':  '\.git$\|\.hg$\|\.svn$\|\.app$\|\.dSYM$\|node_modules$\|third_party$',
+	\ 'file': '\.exe$\|\.so$\|\.os$\|\.dll$\|\.o$\|\.d$\|\.pyc$\|\.swp$\|\.tar$\|\.zip$\|\.lib$\|\.a$\|\.dylib$\|\.map$\|\.psd$\|\.ai$\|\.jpg$\|\.png$\|\.jpeg$\|\.fsh$\|\.vsh$\|\.gsh$',
 	\ }
 
 " CtrlP -- only search current directory
@@ -474,6 +474,7 @@ let g:ctrlp_root_markers = ['dev_config.py', '.git']
 let g:ctrlp_use_caching = 1
 let g:ctrlp_clear_cache_on_exit = 0
 let g:ctrlp_max_files = 500000
+let g:ctrlp_regexp = 1        " default to regex mode, creates better result ordering
 
 " CtrlP -- refresh file tree on write or focus change
 "augroup CtrlPExtension
