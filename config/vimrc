@@ -455,7 +455,7 @@ autocmd BufNewFile *.{h,hpp} call <SID>insert_gates()
 "     -- ctrl+v: open in vert split
 "     -- ctrl+s: open in horiz split
 noremap <leader>ff <esc>:CtrlP<cr>            " find file
-noremap <leader>ft <esc>:CtrlPBufTagAll<cr>   " find tag
+noremap <leader>ft <esc>:CtrlPTag<cr>         " find tag
 noremap <leader>fr <esc>:CtrlPMRUFiles<cr>    " find recently used file
 noremap <leader>fb <esc>:CtrlPBuffer<cr>      " find buffer
 noremap <leader>fq <esc>:CtrlPQuickfix<cr>    " find in quickfix
