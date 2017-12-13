@@ -20,6 +20,7 @@
     rmbranch = !"f() { git remote | xargs -n1 -I {} git push {} ":"refs/heads/$1; git branch -d $1; }; f"
     branch2tag = !"git tag $1 refs/heads/$1; git rmbranch $1"
 	sync-hard = !"git fetch && git reset --hard"
+	show-branches = log --all --graph --decorate --oneline --simplify-by-decoration
 	prune-all = !"git remote | xargs -n 1 git remote prune"
 	lg = "log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative"
 	whois = "!sh -c 'git log -i -1 --pretty=\"format:%an <%ae>\n\" --author=\"$1\"' -"
