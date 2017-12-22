@@ -63,6 +63,7 @@ fi
 
 # ssh without host key checking
 alias cloud-ssh='ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no'
+alias cloud-scp='scp -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no'
 
 # autojump wrapper (I've renamed "function j" in
 #   autojump.sh to "function j_impl")
