@@ -432,7 +432,7 @@ autocmd FileType c,cpp,h,hpp hi Special ctermfg=4
 
 " Automatically insert C++ header gates for new h/hpp files
 function! s:insert_gates()
-  let gatename = '_' . substitute(toupper(substitute(expand("%:t"), "\\(\.\\)\\(\\u\\)", "\\1_\\2", "g")), "\\.", "_", "g")
+  let gatename = substitute(toupper(substitute(expand("%:t"), "\\(\.\\)\\(\\u\\)", "\\1_\\2", "g")), "\\.", "_", "g")
   execute "normal! i#ifndef " . gatename
   execute "normal! o#define " . gatename
   execute "normal! Go#endif // " . gatename
