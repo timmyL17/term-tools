@@ -77,6 +77,9 @@ set shiftwidth=4   " Number of spaces to use for each step of (auto)indent.
 set textwidth=0    " no hard wrapping by default
 set expandtab      " use spaces instead of tabs
 
+" Formatting
+set formatoptions=crqlt
+
 " Better search
 set incsearch      " incremental search
 set ignorecase     " ignore case in search
@@ -370,20 +373,20 @@ noremap <leader>dw <esc>:call DeleteTrailingWS()<cr>
 " FileType tabs, folding, wrapping {{{
 
 " Python -- whitespace sensitive
-autocmd FileType python setlocal tabstop=4 expandtab shiftwidth=4 softtabstop=4
+autocmd FileType python setlocal tabstop=4 expandtab shiftwidth=4 softtabstop=4 textwidth=80 fo=crqlt
 
 " Latex -- 4-space tabs and 80-character hard wrapping
-autocmd FileType tex setlocal expandtab shiftwidth=4 tabstop=4 textwidth=80
+autocmd FileType tex setlocal expandtab shiftwidth=4 tabstop=4 textwidth=80 fo=crqlt
 
 " Vimrc -- fold with markers
-autocmd FileType vim setlocal foldmethod=marker
+autocmd FileType vim setlocal foldmethod=marker fo=crqlt
 
 " Crontab -- save a backup
 autocmd FileType crontab setlocal backupcopy=yes
 
 " C/C++ -- smart indentation
 " control indentation in c/c++ files with cinoptions
-autocmd FileType c,cpp,h,hpp setlocal smartindent cindent cinoptions=(0,t0,+0,g0
+autocmd FileType c,cpp,h,hpp setlocal smartindent cindent cinoptions=(0,t0,+0,g0 textwidth=80 fo=crqlt
 " by default smartindent unindents lines starting with #. disable this
 autocmd FileType c,cpp,h,cpp inoremap # X#
 
