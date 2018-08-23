@@ -4,6 +4,7 @@
 --exclude=beaker/lib/*
 --exclude=*.min.js
 --exclude=tags
+--exclude=third_party/*
 --languages=C,C++,JavaScript,Python
 
 --langmap=javascript:.js.es6.es.jsx
