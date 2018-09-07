@@ -140,3 +140,6 @@
 [submodule "mintty-colors-solarized"]
 	path = mintty-colors-solarized
 	url = git@github.com:mavnn/mintty-colors-solarized.git
+[submodule "vim/bundle/julia-vim"]
+	path = vim/bundle/julia-vim
+	url = git@github.com:JuliaEditorSupport/julia-vim.git
