@@ -143,3 +143,7 @@
 [submodule "vim/bundle/julia-vim"]
 	path = vim/bundle/julia-vim
 	url = git@github.com:JuliaEditorSupport/julia-vim.git
+[submodule "vim/bundle/vim-gutentags"]
+	path = vim/bundle/vim-gutentags
+	url = git@github.com:ludovicchabant/vim-gutentags.git
+	ignore = dirty
