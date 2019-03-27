@@ -28,7 +28,7 @@
     ignore = dirty
 [submodule "vim/bundle/easymotion"]
 	path = vim/bundle/easymotion
-	url = git://github.com/Lokaltog/vim-easymotion.git
+	url = git://github.com/easymotion/vim-easymotion.git
     ignore = dirty
 [submodule "vim/bundle/surround"]
 	path = vim/bundle/surround
@@ -36,7 +36,7 @@
     ignore = dirty
 [submodule "vim/bundle/latex"]
 	path = vim/bundle/latex
-	url = https://github.com/seanbell/vim-latex
+	url = https://github.com/vim-latex/vim-latex
     ignore = dirty
 [submodule "vim/bundle/tagbar"]
 	path = vim/bundle/tagbar
