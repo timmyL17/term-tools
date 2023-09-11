@@ -52,8 +52,10 @@ fi
 if uname | grep Darwin > /dev/null; then
 	# Mac version
 	alias ls="ls -G"
+	alias le="eza"
 	function ls_safe {
-		~/term-tools/config/timeout3.sh -t 1 ls -G
+		#~/term-tools/config/timeout3.sh -t 1 ls -G
+		~/term-tools/config/timeout3.sh -t 1 eza
 	}
 else
     alias ls="ls --color=auto"
